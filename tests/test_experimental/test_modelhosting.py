@@ -135,7 +135,7 @@ class TestModels:
     @pytest.fixture
     def created_model(self):
         model_name = "test-model-{}".format(randint(0, 1e5))
-        model = models.create_model(name=model_name)
+        model = models.create_model(name=model_name, webhook_url="https://bla.bla")
         yield model
         models.delete_model(model.id)
 
