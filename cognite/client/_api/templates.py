@@ -136,7 +136,6 @@ class TemplateGroupsAPI(APIClient):
 
     def list(self, limit: int = 25, owners: List[str] = None) -> TemplateGroupList:
         """`Lists template groups stored in the project based on a query filter given in the payload of this request.`
-        Up to 1000 template groups can be retrieved in one operation.
 
         Args:
             owners (List[str]): Include template groups that have any of these values in their `owner` field.
