@@ -34,10 +34,11 @@ jobs:
           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
             ${{ env.img }} \
             bash -exc 'yum install -y wget && \
-            pip install pipenv && \
+            python -m pip install pipenv pandas==1.2.1  && \
+            uname -m && \
+            python --version && \
             pipenv run pip install -r core-requirements.txt && \
             pipenv run pytest tests/tests_unit -m 'not dsl' --test-deps-only-core --reruns 2 && \
-            pip install pandas==1.2.1 && \
             pipenv sync --dev && \
             pipenv run coverage run --source cognite.client -m pytest -v tests --reruns 2 && \
             pipenv run coverage xml && \
