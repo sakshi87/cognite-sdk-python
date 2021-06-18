@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-18.04]
-        pyver: [cp37-cp37m, cp38-cp38, cp39-cp39]
+        pyver: [ cp38-cp38 ]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     env:
@@ -34,14 +34,8 @@ jobs:
           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
             ${{ env.img }} \
             bash -exc 'yum install -y wget && \
-            echo "Set Up Conda Env" && \
-            wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh -O miniconda.sh && \
-            export MINICONDA_PATH=/root/miniconda && \
-            chmod +x miniconda.sh && ./miniconda.sh -b -p $MINICONDA_PATH && \
-            export PATH=$MINICONDA_PATH/bin:$PATH && \
-            export Python=${{ env.python-version }} && \
-            conda create --name TEST && \
-            source activate TEST && \  
+            uname -m && \
+            python --version && \
             pip install pipenv pandas==1.2.1  && \
             uname -m && \
             python --version && \
