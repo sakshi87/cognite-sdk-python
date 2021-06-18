@@ -32,7 +32,6 @@ jobs:
             bash -exc '${{ env.py }} -m pip install virtualenv && ${{ env.py }} -m venv .env && \
             source .env/bin/activate && \
             python -m pip install --upgrade pip && \
-            python --version && \
             pip install pipenv pandas==1.2.1  && \
             pipenv run pip install -r core-requirements.txt && \
             export COGNITE_API_KEY=NGM0MmZiNzItNTZjOC00MTNmLWFiZjgtZGIyOWY4NDdjZDgy && \
