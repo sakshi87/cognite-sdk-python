@@ -34,7 +34,14 @@ jobs:
           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
             ${{ env.img }} \
             bash -exc 'yum install -y wget && \
+            echo "Set Up Conda Env" && \
+            wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh -O miniconda.sh && \
+            export MINICONDA_PATH=/root/miniconda && \
+            chmod +x miniconda.sh && ./miniconda.sh -b -p $MINICONDA_PATH && \
+            export PATH=$MINICONDA_PATH/bin:$PATH && \
             export Python=${{ env.python-version }} && \
+            conda create --name TEST && \
+            source activate TEST && \  
             pip install pipenv pandas==1.2.1  && \
             uname -m && \
             python --version && \
