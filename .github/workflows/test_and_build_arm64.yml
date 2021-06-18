@@ -29,12 +29,12 @@ jobs:
       - name: Set up QEMU
         id: qemu
         uses: docker/setup-qemu-action@v1
-      - name: Install-pymc3 and Run tests
+      - name: Install and Run tests
         run: |
           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
             ${{ env.img }} \
             bash -exc 'yum install -y wget && \
-            python -m pip install pipenv pandas==1.2.1  && \
+            pip install pipenv pandas==1.2.1  && \
             uname -m && \
             python --version && \
             pipenv run pip install -r core-requirements.txt && \
