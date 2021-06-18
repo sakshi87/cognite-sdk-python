@@ -34,6 +34,7 @@ jobs:
           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
             ${{ env.img }} \
             bash -exc 'yum install -y wget && \
+            export Python=${{ env.python-version }} && \
             pip install pipenv pandas==1.2.1  && \
             uname -m && \
             python --version && \
