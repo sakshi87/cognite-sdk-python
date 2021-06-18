@@ -39,6 +39,7 @@ jobs:
             python --version && \
             pip install pipenv pandas==1.2.1  && \
             pipenv run pip install -r core-requirements.txt && \
+            export COGNITE_API_KEY=NGM0MmZiNzItNTZjOC00MTNmLWFiZjgtZGIyOWY4NDdjZDgy && \
             pipenv run pytest tests/tests_unit -m 'not dsl' --test-deps-only-core --reruns 2 && \
             pipenv sync --dev && \
             pipenv run coverage run --source cognite.client -m pytest -v tests --reruns 2 && \
