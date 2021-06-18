@@ -17,7 +17,7 @@ jobs:
       py: /opt/python/${{ matrix.pyver }}/bin/python
       img: quay.io/pypa/manylinux2014_aarch64
       python-version: ${{ matrix.pyver }}
-      COGNITE_API_KEY: NGM0MmZiNzItNTZjOC00MTNmLWFiZjgtZGIyOWY4NDdjZDgy
+      COGNITE_API_KEY: ${{ secrets.COGNITE_API_KEY }}
       COGNITE_PROJECT: python-sdk-test
       COGNITE_BASE_URL: https://greenfield.cognitedata.com
       COGNITE_CLIENT_NAME: python-sdk-integration-tests
