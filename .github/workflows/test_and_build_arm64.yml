@@ -17,10 +17,6 @@ jobs:
       py: /opt/python/${{ matrix.pyver }}/bin/python
       img: quay.io/pypa/manylinux2014_aarch64
       python-version: ${{ matrix.pyver }}
-      COGNITE_API_KEY: ${{ secrets.COGNITE_API_KEY }}
-      COGNITE_PROJECT: python-sdk-test
-      COGNITE_BASE_URL: https://greenfield.cognitedata.com
-      COGNITE_CLIENT_NAME: python-sdk-integration-tests
     defaults:
       run:
         shell: bash -l {0}
@@ -40,6 +36,9 @@ jobs:
             pip install pipenv pandas==1.2.1  && \
             pipenv run pip install -r core-requirements.txt && \
             export COGNITE_API_KEY=NGM0MmZiNzItNTZjOC00MTNmLWFiZjgtZGIyOWY4NDdjZDgy && \
+            export COGNITE_CLIENT_NAME=python-sdk-integration-tests && \
+            export COGNITE_BASE_URL=https://greenfield.cognitedata.com && \
+            export COGNITE_PROJECT=python-sdk-test && \
             pipenv run pytest tests/tests_unit -m 'not dsl' --test-deps-only-core --reruns 2 && \
             pipenv sync --dev && \
             pipenv run coverage run --source cognite.client -m pytest -v tests --reruns 2 && \
