@@ -162,7 +162,7 @@
                 "sha256:ee50c2142cdcf41995655d499a157d0a812fce55c97d9aad13bc1eef837ed36c"
             ],
             "index": "pypi",
-            "version": "==0.25.3"
+            "version": "==1.2.1"
         },
         "pluggy": {
             "hashes": [
@@ -359,7 +359,7 @@
                 "sha256:f60567825f791c6f8a592f3c6e3bd93dd2934e3f9dac189308426bd76b00ef3b",
                 "sha256:f803eaa94c2fcda012c047e62bc7a51b0bdabda1cad7a92a522694ea2d76e49f"
             ],
-            "version": "==1.14.4"
+            "version": "==1.14.5"
         },
         "cfgv": {
             "hashes": [
