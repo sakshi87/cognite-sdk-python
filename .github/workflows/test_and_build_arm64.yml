@@ -3,7 +3,7 @@ name: test_and_build_arm64
 on:
   pull_request:
   push:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
   test_and_build_arm64:
